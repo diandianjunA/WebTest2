@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<beans>
+<!--    标签的作用是 servletPath中涉及的名字对应的是fruit，那么就要FruitController处理-->
+    <bean id="fruit" class="mvcServlet.FruitController">
+        <property name="fruitService" ref="fruitService"/>
+    </bean>
+    <bean id="fruitDAO" class="Demo1Servlet.FruitDAO"></bean>
+    <bean id="fruitService" class="biz.implement.FruitServiceImplement">
+        <!-- property标签用来表示属性：name表示属性名；ref表示引用其他bean的id -->
+        <property name="fruitDAO" ref="fruitDAO"/>
+    </bean>
+</beans>
